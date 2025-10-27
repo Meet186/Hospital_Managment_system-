@@ -8,47 +8,51 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.security.cert.Extension;
 import java.sql.ResultSet;
 
-public class Employe_INFO extends JFrame {
+public class Allpatient_info extends JFrame {
 
-    Employe_INFO(){
+    Allpatient_info(){
 
         JPanel panel = new JPanel();
-        panel.setBounds(5,5,990,590);
-        panel.setBackground(new Color(109,164,170));
+        panel.setBounds(5,5,1000,690);
         panel.setLayout(null);
+        panel.setBackground(new Color(90,156,163));
         add(panel);
 
         JTable table = new JTable();
-        table.setBounds(10,34,980,450);
-        table.setBackground(new Color(109,164,170));
+        table.setBounds(0,40,990,590);
+        table.setBackground(new Color(90,156,163));
         table.setFont(new Font("Tahoma",Font.BOLD,14));
-        table.setRowHeight(30);
-
         panel.add(table);
+
+
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(10,34,980,450);
+        scrollPane.setBounds(10,34,980,400);
         panel.add(scrollPane);
+
         try{
-            String q = "select * from EMP_INFO";
+            String q = "select * from patient_info;";
             conn c = new conn();
             ResultSet resultSet = c.statement.executeQuery(q);
+
             table.setModel(DbUtils.resultSetToTableModel(resultSet));
-            // Adjust column widths
             TableColumnModel columnModel = table.getColumnModel();
-            columnModel.getColumn(0).setPreferredWidth(120); // Name
-            columnModel.getColumn(1).setPreferredWidth(50);  // Age
-            columnModel.getColumn(2).setPreferredWidth(120); // Phone
-            columnModel.getColumn(3).setPreferredWidth(80);  // Salary
-            columnModel.getColumn(4).setPreferredWidth(250); // Gmail (wider!)
-            columnModel.getColumn(5).setPreferredWidth(150); // Aadhar
-        } catch (Exception e){
+            columnModel.getColumn(0).setPreferredWidth(110); // ID
+            columnModel.getColumn(1).setPreferredWidth(100);  // NUMBER
+            columnModel.getColumn(2).setPreferredWidth(110); // NAME
+            columnModel.getColumn(3).setPreferredWidth(80);  // GENDER
+            columnModel.getColumn(4).setPreferredWidth(200); // DISEASE
+            columnModel.getColumn(5).setPreferredWidth(80); // ROOM NO
+            columnModel.getColumn(6).setPreferredWidth(250); // DATE
+            columnModel.getColumn(7).setPreferredWidth(80); // DEPOSITE
+
+        } catch (Exception e ){
             e.printStackTrace();
+
         }
         JButton button = new JButton("Back");
-        button.setBounds(200,500,120,30);
+        button.setBounds(200,480,120,30);
         button.setForeground(Color.WHITE);
         button.setBackground(Color.BLACK);
         panel.add(button);
@@ -61,14 +65,14 @@ public class Employe_INFO extends JFrame {
         });
 
         setUndecorated(true);
-        setSize(1000,600);
+        setSize(1010,700);
         setLayout(null);
         setLocation(350,250);
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new Employe_INFO();
 
+    public static void main(String[] args) {
+        new Allpatient_info();
     }
 }

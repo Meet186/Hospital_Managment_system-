@@ -1,7 +1,6 @@
 package hospital.managment.system;
 
 import net.proteanit.sql.DbUtils;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;

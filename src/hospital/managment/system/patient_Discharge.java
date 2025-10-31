@@ -1,7 +1,5 @@
 package hospital.managment.system;
-
 import javax.swing.*;
-import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -137,15 +135,11 @@ public class patient_Discharge extends JFrame {
             }
         });
 
-
-
-
          setUndecorated(true);
          setSize(800,400);
          setLocation(400,250);
          setVisible(true);
     }
-
     public static void main(String[] args) {
         new patient_Discharge();
     }
